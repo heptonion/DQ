@@ -146,6 +146,7 @@ AcceptableTokens = {'natural', 'string', 'name', 'keyword'}
 #                       and [op, 'prefix'|'postfix', kind] for unary ops
 #
 Operators = [['$', 'prefix', 'factory'],
+             ['^', 'prefix', 'take'   ],
              ['_', 'prefix', 'flatten'],
              ['~', 'left',   'zip'    ],
              ['*', 'left',   'star'   ],

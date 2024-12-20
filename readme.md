@@ -158,7 +158,23 @@ x = [a, a, a, a, ...]
 _(1 ~ x) = a
 ```
 
-The `*` operator is syntactic sugar; `a * b` is equivalent to `_(b ~ $a)`.
+The `^` operator is syntactic sugar for this pattern:
+```
+^x = _(1 ~ x)
+
+^$x = x
+```
+```
+dq> ^$4
+4
+dq> x := $4
+dq> ^x
+4
+dq> ^x
+4
+```
+
+The `*` operator is also syntactic sugar; `a * b` is equivalent to `_(b ~ $a)`.
 ```
 dq> 2 * 3
 6
@@ -202,14 +218,4 @@ that's not been defined:
 ```
 dq> printRepr wat
 ε
-```
-
-## To-do
-
-We’d like to add a “take” operator `^` as an abbreviation for the pattern we
-demonstrated above.
-```
-^x = _(1~x)
-
-^$x = x
 ```

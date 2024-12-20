@@ -287,6 +287,10 @@ def makeQueue(node):
         elif node.kind == "flatten":
             queue = makeQueue(node.children[0])
             return Flatten(queue)
+        elif node.kind == "take":
+            # ^a is syntactic sugar for _(1~a)
+            queue = makeQueue(node.children[0])
+            return Flatten(Zip(Natural(1), queue))
         elif node.kind == "star":
             # a*b is syntactic sugar for _(b~$a)
             fst = makeQueue(node.children[0])
