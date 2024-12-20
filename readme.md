@@ -184,8 +184,8 @@ dq> 3 * 2
       = [ε, ε, ε, ε, ε, ε]
       = 6
 ```
-By happy coincidence, multiplication between string and natural numbers works
-the obvious way:
+By happy coincidence, multiplication between strings and numbers works the
+obvious way:
 ```
 dq> "Helo" * 2
 HeloHelo
