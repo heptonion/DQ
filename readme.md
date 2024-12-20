@@ -197,7 +197,7 @@ dq> 2 * "Helo"
 
 Error messages are usually very helpful and sometimes very misleading.
 
-For example, the interpreter is perfectly happy to let you reference a name
+**Note** that the interpreter is perfectly happy to let you reference a name
 that's not been defined:
 ```
 dq> printRepr wat
