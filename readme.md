@@ -165,13 +165,17 @@ The `^` operator is syntactic sugar for this pattern:
 ^$x = x
 ```
 ```
-dq> ^$4
-4
 dq> x := $4
 dq> ^x
 4
 dq> ^x
 4
+```
+```
+dq> ^$6
+6
+dq> ^^$$6
+6
 ```
 
 The `*` operator is also syntactic sugar; `a * b` is equivalent to `_(b ~ $a)`.
