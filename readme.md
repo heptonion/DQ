@@ -10,28 +10,23 @@ result every syntactically valid program is well-typed. (In other words, the
 only errors are parse errors; it’s (supposed to be) impossible to cause an
 evaluation error.)
 
-Natural numbers are encoded as queues of empty queues:
+Natural numbers are encoded as queues of empty queues.
 ```
 dq> 0
 0
-
 dq> []
 0
-
 dq> 3
-
 dq> [[], [], []]
 3
 ```
 
-Strings are encoded as queues of numbers:
+Strings are encoded as queues of numbers.
 ```
 dq> "helo"
 helo
-
 dq> [104, 101, 108, 111]
 helo
-
 dq> [[[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []], [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []], [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []], [[], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []]]
 helo
 ```
@@ -88,7 +83,7 @@ dq> x + x
 ```
 You can use the `$`, `~`, and `_` operators to use a queue multiple times
 (by creating an infinite queue containing copies of the queue and dequeuing
-copies as needed):
+copies as needed).
 ```
 dq> x := $[[], [], []]
 dq> _(1 ~ x)
@@ -115,8 +110,8 @@ $2 = [2, 2, 2, 2, ...]
 ```
 
 The `_` operator flattens its argument, creating a new queue by draining its
-first element, then its second, then its third, and so on. In other words, it
-folds its argument using the `+` operator:
+first element, then its second, then its third, and so on. (In other words, it
+folds its argument using the `+` operator.)
 ```
 _[] = []
 ```
@@ -142,7 +137,7 @@ The `~` operator zips its arguments, concatenating respective pairs of elements,
 [a, b, c, d] ~ [x, y, z] = [a+x, b+y, c+z]
 ```
 stopping when either argument is exhausted. As a result, it can be used to find
-the minimum of two numbers:
+the minimum of two numbers.
 ```
 dq> 7 ~ 5
 5
@@ -151,7 +146,7 @@ dq> 7 ~ 11
 ```
 
 The pattern `_(1 ~ x)` shown above can be used to repeatedly obtain `a` where
-`x := $a`:
+`x := $a`.
 ```
 x = [a, a, a, a, ...]
 
@@ -202,7 +197,7 @@ dq> 2 * "Helo"
 Error messages are usually very helpful and sometimes very misleading.
 
 For example, the interpreter is perfectly happy to let you reference a name
-that's not been defined.:
+that's not been defined:
 ```
 dq> printRepr wat
 ε
